@@ -1,0 +1,91 @@
+<html lang="ja"> 
+<head>
+  <meta charset="utf-8">
+  <title>Dictionary</title>
+  <link rel="stylesheet" href="./style.css">
+	<link rel="icon" href="./logo.png" />
+</head>
+<body>
+  <div class="header">
+    <h1>ビルマ語例文辞典</h1>
+  </div>
+<div class="search">
+	<form action="./" method="get">
+		<input type="search" name="keyword" id="keyword">
+		<button>Search</button>
+	</form>
+</div>
+<div id="result"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  $("form").submit(function(){
+    var keyword = $("#keyword").val();
+    $.getJSON("dictionary.json", function(data){
+      var result = "";
+      $.each(data, function(index, value){
+        if(value.burmese.indexOf(keyword) !== -1 || value.japanese.indexOf(keyword) !== -1 || value.category.indexOf(keyword) !== -1){
+          result += '<div class="box">'
+					+ '<h2>'
+					+ '<div  class="caption">'
+					+ value.burmese
+					+ '</div>'
+					+ '</h2>'
+					+ '<br>'
+					+ '<h3>和訳</h3>'
+					+ '<p>'
+					+ value.japanese
+					+ '</p>'
+					+ '<h3>分類</h3>'
+					+ '<p>'
+					+ value.category
+					+ '</p>'
+					+ '<h3>log</h3>'
+					+ '<p>'
+					+ value.log
+					+ '</p>'
+					+ '</div>';
+        }
+      });
+      $("#result").html(result);
+    });
+    return false;
+  });
+});
+</script>
+
+	<div class="ppp">
+		<p id="dico"></p>
+		<script type="text/javascript">
+    $(function(){
+      $.getJSON("dictionary.json", function(sample_list){
+        for(var i in sample_list) {
+          var h = '<div class="box">'
+					+ '<h2>'
+					+ '<div  class="title">'
+					+ sample_list[i].bur
+					+ '</div>'
+					+ '</h2>'
+					+ '<br>'
+					+ '<h3 class="caption">meaning</h3>'
+					+ '<p class="meaning">'
+					+ sample_list[i].jap
+					+ '</p>'
+					+ '<h3 class="caption">category</h3>'
+					+ '<p>'
+					+ sample_list[i].cat
+					+ '</p>'
+					+ '<h3 class="caption">log</h3>'
+					+ '<p>'
+					+ sample_list[i].log
+					+ '</p>';
+					+ '</div>'
+          $("p#dico").append(h);
+        }
+      });
+    });
+  </script>
+	</div>
+</body>
+</html>
