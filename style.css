@@ -7,6 +7,12 @@
   font-family: "Padauk";
   letter-spacing: -0.1em;
 }
+
+@font-face {
+    font-family: "Yumin";
+    src: url("./yumin.ttf");  format('ttf');
+}
+
 h2 {
   font-size:20px;
   color: #004d25;
@@ -43,8 +49,11 @@ body {
 p.box {
   margin: -2em 0 -5em 0;
 }
-.caption {
+.title {
   float: left;
   margin:0 1em 0 0;
   font-family: "Padauk";
+}
+p.meaning {
+  font-family: "Yumin";
 }
