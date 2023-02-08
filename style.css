@@ -1,10 +1,10 @@
 @font-face {
-    font-family: "Qavaxa";
-    src: url("https://static.miraheze.org/kakukokkawiki/8/89/Qavaxa.ttf");  format('ttf');
+    font-family: "Padauk";
+    src: url("./Padauk-Regular.ttf");  format('ttf');
 }
 
 .font {
-  font-family: "Qavaxa";
+  font-family: "Padauk";
   letter-spacing: -0.1em;
 }
 h2 {
