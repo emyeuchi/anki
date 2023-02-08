@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="header">
-    <h1>例文辞典</h1>
+    <h1>Qavajxa language dictionary</h1>
   </div>
 	<div class="search">
 		<form action="./" method="get">
@@ -20,22 +20,25 @@
 		<p id="dico"></p>
 		<script type="text/javascript">
     $(function(){
-      $.getJSON("./dictionary.json", function(sample_list){
+      $.getJSON("dictionary.json", function(sample_list){
         for(var i in sample_list) {
           var h = '<div class="box">'
 					+ '<h2>'
+					+ '<div  class="font caption">'
+					+ sample_list[i].title
+					+ '</div>'
 					+ '<div  class="caption">'
-					+ sample_list[i].burmese
+					+ sample_list[i].title
 					+ '</div>'
 					+ '</h2>'
 					+ '<br>'
-					+ '<h3>和訳</h3>'
+					+ '<h3>meaning</h3>'
 					+ '<p>'
-					+ sample_list[i].japanese
+					+ sample_list[i].meaning
 					+ '</p>'
-					+ '<h3>分類</h3>'
+					+ '<h3>explanation</h3>'
 					+ '<p>'
-					+ sample_list[i].category
+					+ sample_list[i].content
 					+ '</p>'
 					+ '<h3>log</h3>'
 					+ '<p>'
