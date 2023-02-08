@@ -15,18 +15,18 @@
 
 h2 {
   font-size:20px;
-  color: #004d25;
+  color: #ebf6f7;
 }
 h3 {
   font-size:12px;
-  color: #004d25;
+  color: #ebf6f7;
 }
 body {
   margin: 0;
   padding: 0;
   font-size:15px;
-  color: white;
-  background-color: #89c997;
+  color: #ebf6f7;
+  background-color: #478384;
   font-family: serif;
   line-height: 50%;
 }
@@ -41,9 +41,9 @@ body {
 .box {
   padding: 0.5em 1em;
   margin: 0.5em;
-  color: black;
-  background: #89c997;
-  border: solid 3px white;
+  color: #ebf6f7;
+  background: #2c4f54;
+  border: solid 3px #ebf6f7;
   border-radius: 10px;
 }
 p.box {
