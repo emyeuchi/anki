@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $.getJSON("dictionary.json", function(sample_list){
+        var search = function(){
+          var bur = $('#bur').val().toLowerCase();
+          var jap = $('#jap').val().toLowerCase();
+          var cat = $('#cat').val().toLowerCase();
+          var log = $('#log').val().toLowerCase();
+
+          $("p#dico").empty();
+          for(var i in sample_list) {
+            var b = sample_list[i].burmese.toLowerCase();
+            var j = sample_list[i].japanese.toLowerCase();
+            var c = sample_list[i].category.toLowerCase();
+            var l = sample_list[i].log.toLowerCase();
+
+            if (bur.length == 0 || b.indexOf(bur) >= 0) {
+              if (jap.length == 0 || j.indexOf(jap) >= 0) {
+                if (cat.length == 0 || c.indexOf(cat) >= 0) {
+                  if (log.length == 0 || l.indexOf(log) >= 0) {
+                    var h = '<div class="box">'
+                           + '<h2>'
+                           + '<div  class="caption">'
+                           + sample_list[i].burmese
+                           + '</div>'
+                           + '</h2>'
+                           + '<br>'
+                           + '<h3>和訳</h3>'
+                           + '<p>'
+                           + sample_list[i].japanese
+                           + '</p>'
+                           + '<h3>分類</h3>'
+                           + '<p>'
+                           + sample_list[i].category
+                           + '</p>'
+                           + '<h3>log</h3>'
+                           + '<p>'
+                           + sample_list[i].log
+                           + '</p>'
+                           + '</div>';
+                    $("p#dico").append(h);
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        $('#bur').on('input', search);
+        $('#jap').on('input', search);
+        $('#cat').on('input', search);
+        $('#log').on('input', search);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div>
+    <label for="bur">burmese</label>
+    <input type="text" id="bur" name="bur">
+  </div>
+  <div>
+    <label for="jap">japanese</label>
+    <input type="text" id="jap" name="jap">
+<button id="search">検索</button>
+
+<script type="text/javascript">
+  $(function() {
+    $.getJSON("dictionary.json", function(data) {
+      var list = data.lists;
+      $("#search").click(function() {
+        var jap = $("#jap").val();
+        $("p#dico").empty();
+        for (var i in list) {
+          if (list[i].japanese.indexOf(jap) >= 0) {
+            var h = '<div class="box">'
+              + '<h2>'
+              + '<div class="caption">'
+              + list[i].burmese
+              + '</div>'
+              + '</h2>'
+              + '<br>'
+              + '<h3>和訳</h3>'
+              + '<p>'
+              + list[i].japanese
+              + '</p>'
+              + '<h3>分類</h3>'
+              + '<p>'
+              + list[i].category
+              + '</p>'
+              + '<h3>log</h3>'
+              + '<p>'
+              + list[i].log
+              + '</p>'
+              + '</div>';
+            $("p#dico").append(h);
+          }
+        }
+      });
+    });
+  });
+</script>
+</body>
