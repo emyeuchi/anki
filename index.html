@@ -23,26 +23,32 @@ $(function(){
   $.getJSON("dictionary.json", function(sample_list){
     for(var i in sample_list) {
       var h = '<div class="box">'
-				+ '<h2>'
-				+ '<div class="title">'
-				+ sample_list[i].bur
-				+ '</div>'
-				+ '<button class="show-btn">Show Meaning</button>'
-				+ '</h2>'
-				+ '<br>'
-				+ '<h3 class="caption">meaning</h3>'
-				+ '<p class="meaning hide">'
-				+ sample_list[i].jap
-				+ '</p>'
-				+ '<h3 class="caption">category</h3>'
-				+ '<p>'
-				+ sample_list[i].cat
-				+ '</p>'
-				+ '<h3 class="caption">log</h3>'
-				+ '<p>'
-				+ sample_list[i].log
-				+ '</p>'
-				+ '</div>';
+      + '<h2>'
+			+ '<div class="title">'
+		  + sample_list[i].bur
+    	+ '</div>'
+			+ '</h2>'
+			+ '<br>'
+      + '<div class="pack">'
+      + '<div class="pack-container">'
+      + '<h3 class="caption">meaning</h3>'
+      + '</div>'
+      + '<div class="pack-container">'
+      + '<button class="show-btn">Show Meaning</button>'
+      + '</div>'
+      + '</div>'
+			+ '<p class="meaning hide">'
+			+ sample_list[i].jap
+			+ '</p>'
+			+ '<h3 class="caption">category</h3>'
+			+ '<p>'
+			+ sample_list[i].cat
+      + '</p>'
+			+ '<h3 class="caption">log</h3>'
+			+ '<p>'
+			+ sample_list[i].log
+      + '</p>'
+			+ '</div>';
       $("p#dico").append(h);
     }
 			$(".show-btn").click(function() {
