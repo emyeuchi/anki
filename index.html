@@ -29,25 +29,31 @@ $(function(){
       + '</div>'
       + '</h2>'
       + '<br>'
+      + '<div class="caption">
       + '<div class="pack-container">'
       + '<div class="pack">'
-      + '<h3 class="caption">meaning</h3>'
+      + '<h3">meaning</h3>'
       + '</div>'
-      + '<div class="pack-container">'
+      + '<div class="pack">'
       + '<button class="show-btn">Show Meaning</button>'
       + '</div>'
       + '</div>'
       + '<p class="meaning hide">'
       + sample_list[i].jap
       + '</p>'
-      + '<h3 class="caption">category</h3>'
+      + '</div>
+      + '<div class="caption">
+      + '<h3>category</h3>'
       + '<p>'
       + sample_list[i].cat
       + '</p>'
-      + '<h3 class="caption">log</h3>'
+      + '</div>'
+      + '<div class="caption">
+      + '<h3>log</h3>'
       + '<p>'
       + sample_list[i].log
       + '</p>'
+      + '</div>
       + '</div>';
       $("p#dico").append(h);
     }
