@@ -69,6 +69,8 @@ p.meaning {
   text-align: center;
   color: #ebf6f7;
   background-color: #007bbb;
+  margin:0 0 0 10px;
+}
 }
 .show-btn:hover {
   background-color: #2ca9e1;
