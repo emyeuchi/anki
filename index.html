@@ -19,22 +19,20 @@
 <div class="ppp">
   <p id="dico"></p>
   <script type="text/javascript">
-    $(function() {
-      $.getJSON("dictionary.json", function(sample_list) {
-        for (var i in sample_list) {
+    $(function(){
+      $.getJSON("dictionary.json", function(sample_list){
+        for(var i in sample_list) {
           var h = '<div class="box">'
             + '<h2>'
-            + '<div class="title">'
+            + '<div  class="title">'
             + sample_list[i].bur
             + '</div>'
             + '</h2>'
             + '<br>'
             + '<h3 class="caption">meaning</h3>'
-            + '<div class="hide" id="hidden_' + i + '">'
-            + '<p class="meaning">'
+            + '<div class="hide" id="hidden"><p class="meaning">'
             + sample_list[i].jap
-            + '</p>'
-            + '</div>'
+            + '</p></div>'
             + '<button class="show-btn">表示</button>'
             + '<h3 class="caption">category</h3>'
             + '<p>'
@@ -47,13 +45,12 @@
             + '</div>';
           $("p#dico").append(h);
         }
-
-        $(".show-btn").click(function() {
-          var hidden = $(this).nextAll("#hidden_" + i)[0];
-          if (hidden.classList.contains("hide")) {
-            hidden.classList.remove("hide");
+        $('.show-btn').on('click', function() {
+          var hidden = $(this).next('.hide');
+          if (hidden.hasClass('hide')) {
+            hidden.removeClass('hide');
           } else {
-            hidden.classList.add("hide");
+            hidden.addClass('hide');
           }
         });
       });
