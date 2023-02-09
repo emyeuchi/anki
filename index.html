@@ -15,51 +15,50 @@
 			<button>Search</button>
 		</form>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<div class="ppp">
-		<p id="dico"></p>
-		<script type="text/javascript">
-    $(function(){
-      $.getJSON("dictionary.json", function(sample_list){
-        for(var i in sample_list) {
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<div class="ppp">
+  <p id="dico"></p>
+  <script type="text/javascript">
+    $(function() {
+      $.getJSON("dictionary.json", function(sample_list) {
+        for (var i in sample_list) {
           var h = '<div class="box">'
-					+ '<h2>'
-					+ '<div  class="title">'
-					+ sample_list[i].bur
-					+ '</div>'
-					+ '</h2>'
-					+ '<br>'
-					+ '<h3 class="caption">meaning</h3>'
-					+ '<div class="hide" id="hidden"><p class="meaning">'
-					+ sample_list[i].jap
-					+ '</p></div>'
-					+ '<button id="show-btn">表示</button>'
-					+ '<h3 class="caption">category</h3>'
-					+ '<p>'
-					+ sample_list[i].cat
-					+ '</p>'
-					+ '<h3 class="caption">log</h3>'
-					+ '<p>'
-					+ sample_list[i].log
-					+ '</p>';
-					+ '</div>'
+            + '<h2>'
+            + '<div class="title">'
+            + sample_list[i].bur
+            + '</div>'
+            + '</h2>'
+            + '<br>'
+            + '<h3 class="caption">meaning</h3>'
+            + '<div class="hide" id="hidden_' + i + '">'
+            + '<p class="meaning">'
+            + sample_list[i].jap
+            + '</p>'
+            + '</div>'
+            + '<button class="show-btn">表示</button>'
+            + '<h3 class="caption">category</h3>'
+            + '<p>'
+            + sample_list[i].cat
+            + '</p>'
+            + '<h3 class="caption">log</h3>'
+            + '<p>'
+            + sample_list[i].log
+            + '</p>'
+            + '</div>';
           $("p#dico").append(h);
         }
+
+        $(".show-btn").click(function() {
+          var hidden = $(this).nextAll("#hidden_" + i)[0];
+          if (hidden.classList.contains("hide")) {
+            hidden.classList.remove("hide");
+          } else {
+            hidden.classList.add("hide");
+          }
+        });
       });
     });
   </script>
-	<script>
-  document.querySelectorAll(".box button").forEach(function(btn) {
-  btn.addEventListener("click", function() {
-    var hidden = btn.nextElementSibling;
-    if (hidden.classList.contains("hide")) {
-      hidden.classList.remove("hide");
-    } else {
-      hidden.classList.add("hide");
-    }
-  });
-});
-</script>
-	</div>
+</div>
 </body>
 </html>
