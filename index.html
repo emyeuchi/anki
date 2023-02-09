@@ -49,14 +49,16 @@
     });
   </script>
 	<script>
-  document.getElementById("show-btn").addEventListener("click", function() {
-    var hidden = document.getElementById("hidden");
+  document.querySelectorAll(".box button").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    var hidden = btn.nextElementSibling;
     if (hidden.classList.contains("hide")) {
       hidden.classList.remove("hide");
     } else {
       hidden.classList.add("hide");
     }
   });
+});
 </script>
 	</div>
 </body>
