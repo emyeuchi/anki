@@ -24,11 +24,11 @@ $(function(){
     for(var i in sample_list) {
       var h = '<div class="box">'
       + '<h2>'
-			+ '<div class="title">'
-		  + sample_list[i].bur
-    	+ '</div>'
-			+ '</h2>'
-			+ '<br>'
+      + '<div class="title">'
+      + sample_list[i].bur
+      + '</div>'
+      + '</h2>'
+      + '<br>'
       + '<div class="pack">'
       + '<div class="pack-container">'
       + '<h3 class="caption">meaning</h3>'
@@ -37,18 +37,18 @@ $(function(){
       + '<button class="show-btn">Show Meaning</button>'
       + '</div>'
       + '</div>'
-			+ '<p class="meaning hide">'
-			+ sample_list[i].jap
-			+ '</p>'
-			+ '<h3 class="caption">category</h3>'
-			+ '<p>'
-			+ sample_list[i].cat
+      + '<p class="meaning hide">'
+      + sample_list[i].jap
       + '</p>'
-			+ '<h3 class="caption">log</h3>'
-			+ '<p>'
-			+ sample_list[i].log
+      + '<h3 class="caption">category</h3>'
+      + '<p>'
+      + sample_list[i].cat
       + '</p>'
-			+ '</div>';
+      + '<h3 class="caption">log</h3>'
+      + '<p>'
+      + sample_list[i].log
+      + '</p>'
+      + '</div>';
       $("p#dico").append(h);
     }
 			$(".show-btn").click(function() {
