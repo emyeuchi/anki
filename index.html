@@ -30,9 +30,10 @@
 					+ '</h2>'
 					+ '<br>'
 					+ '<h3 class="caption">meaning</h3>'
-					+ '<p class="meaning">'
+					+ '<div class="hide" id="hidden"><p class="meaning">'
 					+ sample_list[i].jap
-					+ '</p>'
+					+ '</p></div>'
+					+ '<button id="show-btn">表示</button>'
 					+ '<h3 class="caption">category</h3>'
 					+ '<p>'
 					+ sample_list[i].cat
@@ -47,6 +48,16 @@
       });
     });
   </script>
+	<script>
+  document.getElementById("show-btn").addEventListener("click", function() {
+    var hidden = document.getElementById("hidden");
+    if (hidden.classList.contains("hide")) {
+      hidden.classList.remove("hide");
+    } else {
+      hidden.classList.add("hide");
+    }
+  });
+</script>
 	</div>
 </body>
 </html>
